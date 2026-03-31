@@ -28,13 +28,22 @@ Error generating stack: `+e.message+`
           position: absolute;
           inset: 0;
           z-index: 0;
+          background-color: hsl(215, 15%, 10%); /* لون الموقع الأساسي */
+          /* صورة أبراج استثمارية فخمة جداً */
+          background-image: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=2000'); 
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed; /* السحر هنا: يثبت الصورة مع النزول (Parallax) */
+          background-blend-mode: luminosity; /* يخلي الصورة تندمج بلون الموقع وتصير رسمية */
         }
 
         .hero-bg::before {
           content: '';
           position: absolute;
           inset: 0;
-          background: radial-gradient(ellipse at center, hsla(38, 45%, 60%, 0.1) 0%, transparent 75%);
+          /* تدرج من ذهبي خفيف بالنص إلى أسود معتم بالأطراف */
+          background: radial-gradient(ellipse at center, hsla(38, 45%, 60%, 0.1) 0%, hsl(215, 15%, 10%, 0.95) 100%);
+          z-index: 1;
         }
 
         .orb {
