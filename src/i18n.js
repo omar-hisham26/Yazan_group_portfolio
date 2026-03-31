@@ -97,7 +97,7 @@ const resources = {
       "b3_desc": "Smart and elegant living spaces, carefully designed to provide maximum comfort and practicality.",
       "b4_title": "Murjan Contracting & Restoration",
       "b4_desc": "Precision in execution and quality in construction. Comprehensive contracting services by industry experts.",
-      "b5_title": "Cut & Ready",
+      "b5_title": "Knife",
       "b5_desc": "A new and innovative concept in preparation to facilitate your work and save your time with unmatched quality.",
       "b6_title": "Modern Murjan Laundries",
       "b6_desc": "Supreme care and perfect cleanliness. We use the latest technologies to ensure the best care for your belongings.",

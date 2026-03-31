@@ -11,7 +11,7 @@ const Brands = () => {
   // ذاكرة لتخزين المشروع اللي تم الضغط عليه (إذا كان null يعني النافذة مقفلة)
   const [selectedBrand, setSelectedBrand] = useState(null);
 
-  const activeBrands = brands.filter(brand => brand.id !== 4 && brand.id !== 5);
+  const activeBrands = brands.filter(brand => brand.id !== 4 );
 
   return (
     <section className="brands-section" id="brands">
@@ -54,7 +54,15 @@ const Brands = () => {
                   disabled={isComingSoon}
                   onClick={() => setSelectedBrand({ rawBrand: brand, title: currentTitle, desc: currentDesc })}
                 >
-                  <span>{isComingSoon ? t('coming_soon_badge') : t('view_details')}</span>
+                  <span>
+                  {isComingSoon 
+                    ? t('coming_soon_badge') 
+                    : brand.id === 1
+                      ? (i18n.language === 'ar' ? 'تواصل معنا' : 'Contact Us')
+                      : (brand.id === 2 || brand.id === 3)
+                        ? (i18n.language === 'ar' ? 'احجز الآن' : 'Book Now')
+                        : (i18n.language === 'ar' ? 'عرض التفاصيل' : 'View Details')}
+                </span>
                   
                   {!isComingSoon && (
                     <svg className="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ transform: i18n.language === 'ar' ? 'rotate(180deg)' : 'none' }}>

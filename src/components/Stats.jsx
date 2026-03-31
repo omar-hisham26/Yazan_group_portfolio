@@ -42,7 +42,7 @@ const Stats = () => {
   const statsData = [
     {
       id: 1,
-      end: 10,
+      end: 8,
       prefix: "+",
       labelKey: "stat_experience",
       icon: (
@@ -51,7 +51,7 @@ const Stats = () => {
     },
     {
       id: 2,
-      end: 50,
+      end: 10,
       prefix: "+",
       labelKey: "stat_projects",
       icon: (

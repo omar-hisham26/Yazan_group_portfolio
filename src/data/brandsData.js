@@ -7,6 +7,7 @@
 import logoRealEstate from '../assets/images/morjan-almajd.jpeg';
 import logoChalets from '../assets/images/morjan-resdient.jpeg';
 import clothing from '../assets/images/morjan-clothing.jpeg';
+import logoKnife from '../assets/images/logo-knife.jpeg';
 // ... إلخ لجميع البراندات
 
 export const groupInfo = {
@@ -52,9 +53,9 @@ export const brands = [
   },
   {
     id: 5,
-    name: "مقطع وجاهز",
+    name: "سكين",
     desc: "مفهوم جديد في عالم الخدمات... انتظرونا قريباً",
-    // logo: logoSoon1,
+    logo: logoKnife,
     category: "خدمات",
     status: "coming_soon",
   },

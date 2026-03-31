@@ -11,7 +11,7 @@ const Contact = () => {
   }, []);
 
   // بيانات التواصل (عدلها بأرقامكم الحقيقية)
-  const phone = "+966567257480";
+  const phone = "+966580437700";
   const email = "omar.hisham2066@gmail.com";
   
   // رسالة الواتساب التلقائية
