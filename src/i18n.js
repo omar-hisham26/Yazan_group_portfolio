@@ -46,7 +46,23 @@ const resources = {
       "vision_title": "رؤيتنا",
       "vision_desc": "أن نكون الخيار الأول والوجهة الموثوقة للاستثمار والخدمات المتكاملة في المملكة، مع ترك بصمة إيجابية مستدامة.",
       "mission_title": "رسالتنا",
-      "mission_desc": "تقديم حلول مبتكرة وخدمات استثنائية تفوق توقعات عملائنا، من خلال فريق عمل محترف وشراكات استراتيجية ناجحة."
+      "mission_desc": "تقديم حلول مبتكرة وخدمات استثنائية تفوق توقعات عملائنا، من خلال فريق عمل محترف وشراكات استراتيجية ناجحة.",
+
+
+
+
+      /* 📱 كلمات الفوتر الجديد */
+          "footer_desc": "كيان رائد للاستثمار، يجمع بين الخبرة العميقة والرؤية المستقبلية، نقدم حلولاً مبتكرة تفوق توقعات عملائنا.",
+          "footer_rights": "جميع الحقوق محفوظة. مجموعة يزن العلي للاستثمار",
+          "quick_links": "روابط سريعة",
+          "social_media": "تواصل اجتماعي",
+          "our_sectors": "قطاعاتنا",
+          "f_realestate": "العقارات",
+          "f_construction": "المقاولات",
+          "f_hospitality": "الضيافة",
+          "f_logistics": "الخدمات اللوجستية",
+          "follow_us": "تابعنا عبر:"
+
     }
   },
   en: {
@@ -92,7 +108,22 @@ const resources = {
       "vision_title": "Our Vision",
       "vision_desc": "To be the first choice and trusted destination for investments and integrated services in the Kingdom, leaving a sustainable positive footprint.",
       "mission_title": "Our Mission",
-      "mission_desc": "To provide innovative solutions and exceptional services that exceed our clients' expectations, through a professional team and successful strategic partnerships."
+      "mission_desc": "To provide innovative solutions and exceptional services that exceed our clients' expectations, through a professional team and successful strategic partnerships.",
+
+
+
+      
+      /* 📱 كلمات الفوتر الجديد */
+          "footer_desc": "A leading investment entity, combining experience with vision, providing innovative solutions that exceed expectations.",
+          "footer_rights": "All Rights Reserved. Yazan Al-Ali Investment Group",
+          "quick_links": "Quick Links",
+          "social_media": "Social Media",
+          "our_sectors": "Our Sectors",
+          "f_realestate": "Real Estate",
+          "f_construction": "Construction",
+          "f_hospitality": "Hospitality",
+          "f_logistics": "Logistics",
+          "follow_us": "Follow us on:"
     }
   }
 };
