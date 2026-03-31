@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next'; 
 import './Navbar.css';
 
-const Navbar = () => {
+const Navbar = ({ setCurrentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -12,7 +12,6 @@ const Navbar = () => {
   const toggleLanguage = () => {
     const newLang = i18n.language === 'ar' ? 'en' : 'ar';
     i18n.changeLanguage(newLang);
-    
     document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = newLang;
   };
@@ -31,46 +30,54 @@ const Navbar = () => {
 
   const closeMenu = () => setIsMobileMenuOpen(false);
 
+  // السحر هنا: دوال التنقل
+  const goHome = (e) => {
+    e.preventDefault();
+    setCurrentPage('home');
+    window.scrollTo(0, 0);
+    closeMenu();
+  };
+
+  const goSection = (e, id) => {
+    e.preventDefault();
+    setCurrentPage('home'); // نضمن الرجوع للرئيسية أولاً
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+    closeMenu();
+  };
+
+  const goContact = (e) => {
+    e.preventDefault();
+    setCurrentPage('contact');
+    window.scrollTo(0, 0);
+    closeMenu();
+  };
+
   return (
     <>
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-container">
           
-          <a href="#" className="nav-logo">
-            <span className="text-gradient-gold" style={{ margin: '0 8px' }}>
-              {t('hero_name')}
-            </span> 
-            <span style={{ fontSize: '0.85em', opacity: 0.9 }}>
-              {t('hero_type')}
-            </span>
+          <a href="#" onClick={goHome} className="nav-logo">
+            <span className="text-gradient-gold" style={{ margin: '0 8px' }}>{t('hero_name')}</span> 
+            <span style={{ fontSize: '0.85em', opacity: 0.9 }}>{t('hero_type')}</span>
           </a>
 
-          {/* 👇 هنا عدلنا الروابط للديسكتوب */}
           <ul className="desktop-nav-links">
-            <li><a href="#">{t('home')}</a></li> 
-            <li><a href="#brands">{t('brands')}</a></li> 
-            <li><a href="#about">{t('about')}</a></li> 
+            <li><a href="#" onClick={goHome}>{t('home')}</a></li> 
+            <li><a href="#brands" onClick={(e) => goSection(e, 'brands')}>{t('brands')}</a></li> 
+            <li><a href="#about" onClick={(e) => goSection(e, 'about')}>{t('about')}</a></li> 
           </ul>
 
           <div className="desktop-contact" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-            <button 
-              onClick={toggleLanguage} 
-              style={{ 
-                background: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)', 
-                padding: '0.4rem 1rem', borderRadius: '4px', cursor: 'pointer', 
-                fontFamily: 'inherit', fontWeight: 'bold', transition: '0.3s'
-              }}
-            >
+            <button onClick={toggleLanguage} style={{ background: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)', padding: '0.4rem 1rem', borderRadius: '4px', cursor: 'pointer', fontFamily: 'inherit', fontWeight: 'bold', transition: '0.3s' }}>
               {t('lang_btn')}
             </button>
-            {/* ربطنا زر التواصل بالفوتر تحت */}
-            <a href="#footer" className="contact-btn">{t('contact')}</a>
+            <a href="#" onClick={goContact} className="contact-btn">{t('contact')}</a>
           </div>
 
-          <div 
-            className={`menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
+          <div className={`menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
             <span></span>
             <span></span>
           </div>
@@ -80,27 +87,16 @@ const Navbar = () => {
 
       <div className={`mobile-menu-panel ${isMobileMenuOpen ? 'active' : ''}`}>
         <div className="panel-container">
-          {/* 👇 وهنا عدلنا الروابط لقائمة الجوال */}
           <ul className="nav-links">
-            <li style={{ '--i': '1' }}><a href="#" onClick={closeMenu}>{t('home')}</a></li>
-            <li style={{ '--i': '2' }}><a href="#brands" onClick={closeMenu}>{t('brands')}</a></li>
-            <li style={{ '--i': '3' }}><a href="#about" onClick={closeMenu}>{t('about')}</a></li>
+            <li style={{ '--i': '1' }}><a href="#" onClick={goHome}>{t('home')}</a></li>
+            <li style={{ '--i': '2' }}><a href="#brands" onClick={(e) => goSection(e, 'brands')}>{t('brands')}</a></li>
+            <li style={{ '--i': '3' }}><a href="#about" onClick={(e) => goSection(e, 'about')}>{t('about')}</a></li>
             
-            <li 
-              className="mobile-contact" 
-              style={{ '--i': '4', display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}
-            >
-              <button 
-                onClick={() => { toggleLanguage(); closeMenu(); }} 
-                style={{ 
-                  background: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)', 
-                  padding: '0.6rem 1.8rem', borderRadius: '4px', cursor: 'pointer', 
-                  fontFamily: 'inherit', fontSize: '1.1rem', fontWeight: 'bold'
-                }}
-              >
+            <li className="mobile-contact" style={{ '--i': '4', display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}>
+              <button onClick={() => { toggleLanguage(); closeMenu(); }} style={{ background: 'transparent', border: '1px solid var(--gold)', color: 'var(--gold)', padding: '0.6rem 1.8rem', borderRadius: '4px', cursor: 'pointer', fontFamily: 'inherit', fontSize: '1.1rem', fontWeight: 'bold' }}>
                 {t('lang_btn')}
               </button>
-              <a href="#footer" className="contact-btn" onClick={closeMenu}>{t('contact')}</a>
+              <a href="#" onClick={goContact} className="contact-btn">{t('contact')}</a>
             </li>
           </ul>
         </div>

@@ -14,7 +14,7 @@ const Modal = ({ brand, title, desc, onClose }) => {
   };
 
   // رقم الواتساب الخاص بالمجموعة (يجب تغييره)
-  const phoneNumber = "966500000000"; 
+  const phoneNumber = "966567257480"; 
   
   // تجهيز رسالة الواتساب التلقائية بناءً على اللغة واسم المشروع
   const whatsappMessage = i18n.language === 'ar' 

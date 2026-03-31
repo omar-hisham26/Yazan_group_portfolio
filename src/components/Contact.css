@@ -1,0 +1,134 @@
+/* src/components/Contact.css */
+.contact-page {
+  padding-top: 140px;
+  min-height: 85vh;
+  padding-bottom: 4rem;
+  animation: fadeInContact 0.6s ease forwards;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-subtitle {
+  color: var(--muted-foreground);
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* شبكة البطاقات الجديدة */
+.contact-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* التصميم الأساسي للبطاقة */
+.direct-card {
+  background: var(--card);
+  border: 1px solid hsla(42, 60%, 55%, 0.1);
+  border-radius: 16px;
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* تأثير الارتفاع والظل عند التمرير */
+.direct-card:hover {
+  transform: translateY(-10px);
+}
+
+.card-icon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.direct-card h3 {
+  font-size: 1.3rem;
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+  font-family: var(--font-cairo);
+}
+
+.direct-card p {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+}
+
+/* --- ألوان مخصصة لكل بطاقة --- */
+
+/* واتساب */
+.wa-card:hover {
+  border-color: #25D366;
+  box-shadow: 0 15px 30px rgba(37, 211, 102, 0.15);
+}
+.wa-card .card-icon {
+  background: rgba(37, 211, 102, 0.1);
+  color: #25D366;
+}
+.wa-card:hover .card-icon {
+  background: #25D366;
+  color: #fff;
+}
+
+/* الإيميل (ذهبي) */
+.email-card:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-gold);
+}
+.email-card .card-icon {
+  background: hsla(42, 60%, 55%, 0.1);
+  color: var(--gold);
+}
+.email-card:hover .card-icon {
+  background: var(--gradient-gold);
+  color: var(--primary-foreground);
+}
+
+/* الهاتف (أزرق فاتح أو فضي) */
+.phone-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.15);
+}
+.phone-card .card-icon {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6;
+}
+.phone-card:hover .card-icon {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* الموقع (أحمر خفيف) */
+.location-card:hover {
+  border-color: #ef4444;
+  box-shadow: 0 15px 30px rgba(239, 68, 68, 0.15);
+}
+.location-card .card-icon {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+.location-card:hover .card-icon {
+  background: #ef4444;
+  color: #fff;
+}
+
+@keyframes fadeInContact {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
