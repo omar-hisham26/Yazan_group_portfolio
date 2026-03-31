@@ -1,0 +1,126 @@
+/* src/components/Brands.css */
+
+.brands-section {
+  padding: 6rem 5%;
+  background: var(--background);
+  position: relative;
+}
+
+.section-title {
+  width: 100%; /* هذا السطر يجبره ياخذ العرض كامل */
+  display: block; /* يمنع التدرج اللوني من كتم المساحة */
+  text-align: center; /* يوسط الكلام بشكل إجباري */
+  font-family: var(--font-cairo);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--foreground);
+  margin: 0 auto 2rem auto; /* قللنا الفراغ السفلي من 4 إلى 2 عشان يلتصق بالبطاقات بشكل أرتب */
+  padding-bottom: 0.2em; 
+}
+
+/* الشبكة اللي ترتب البطاقات (متجاوبة تلقائياً مع الجوال) */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* تصميم البطاقة الفخمة */
+.brand-card {
+  background: var(--card);
+  border: 1px solid hsla(42, 60%, 55%, 0.1); /* إطار ذهبي خفيف جداً */
+  border-radius: 16px;
+  overflow: hidden; /* عشان الصورة ما تطلع برا الزوايا الدائرية */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  
+}
+
+/* تأثير الماوس (Hover) - الارتفاع والظل الذهبي */
+.brand-card:hover {
+  transform: translateY(-12px); /* ترتفع لفوق */
+  border-color: var(--gold);
+  box-shadow: 0 20px 40px hsla(42, 60%, 55%, 0.15); /* ظل ذهبي فخم */
+}
+
+/* حاوية الصورة وتأثير التقريب */
+.brand-img-wrapper {
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+}
+
+.brand-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.brand-card:hover .brand-image {
+  transform: scale(1.08); /* الصورة تكبر شوي بنعومة لما تمرر الماوس */
+}
+
+/* محتوى البطاقة (النصوص والأزرار) */
+.brand-content {
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.brand-title {
+  font-family: var(--font-cairo);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.brand-desc {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  flex-grow: 1; /* عشان يدفع الزر لتحت إذا الكلام قليل */
+}
+
+/* زر عرض التفاصيل */
+.details-btn {
+  align-self: flex-start; /* يخلي الزر ياخذ مساحة النص بس مو كامل العرض */
+  background: transparent;
+  color: var(--foreground);
+  border: 1px solid var(--gold);
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-family: var(--font-cairo);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.brand-card:hover .details-btn {
+  background: var(--gradient-gold);
+  color: var(--primary-foreground);
+}
+
+/* سهم صغير داخل الزر للجمالية */
+.btn-icon {
+  transition: transform 0.3s ease;
+}
+
+html[dir="rtl"] .brand-card:hover .btn-icon {
+  transform: translateX(-5px); /* السهم يتحرك يسار بالعربي */
+}
+
+html[dir="ltr"] .brand-card:hover .btn-icon {
+  transform: translateX(5px); /* السهم يتحرك يمين بالإنجليزي */
+}
