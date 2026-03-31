@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Stats from './components/Stats';
 import Brands from './components/Brands';
 import { groupInfo } from './data/brandsData';
-
+import myHeroBg from './assets/images/background-image.avif';
 function App() {
   // 2. تفعيل المترجم
   const { t, i18n } = useTranslation();
@@ -16,7 +16,8 @@ function App() {
       <Navbar />
 
       <header className="hero">
-        <div className="hero-bg">
+        {/* أضفنا ستايل مباشر يسحب المتغير حق الصورة */}
+        <div className="hero-bg" style={{ backgroundImage: `url(${myHeroBg})` }}>
           <div className="orb orb1"></div>
           <div className="orb orb2"></div>
         </div>
@@ -81,13 +82,21 @@ function App() {
           position: absolute;
           inset: 0;
           z-index: 0;
+          background-color: hsl(215, 15%, 10%);
+          /* مسحنا رابط الصورة من هنا لأننا ربطناها فوق في الـ div مباشرة */
+          background-size: cover;
+          background-position: center;
+          background-attachment: fixed; 
+          background-blend-mode: luminosity; 
         }
 
         .hero-bg::before {
           content: '';
           position: absolute;
           inset: 0;
-          background: radial-gradient(ellipse at center, hsla(38, 45%, 60%, 0.1) 0%, transparent 75%);
+          /* تدرج من ذهبي خفيف بالنص إلى أسود معتم بالأطراف */
+          background: radial-gradient(ellipse at center, hsla(38, 45%, 60%, 0.1) 0%, hsl(215, 15%, 10%, 0.95) 100%);
+          z-index: 1;
         }
 
         .orb {
@@ -202,6 +211,13 @@ function App() {
 
         @keyframes lineIn {
           to { transform: scaleX(1); }
+        }
+
+        /* حل مشكلة اختفاء الصورة في الجوالات (الآيفون والأندرويد) */
+        @media (max-width: 768px) {
+          .hero-bg {
+            background-attachment: scroll !important;
+          }
         }
       `}</style>
     </div>
