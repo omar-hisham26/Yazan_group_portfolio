@@ -6,7 +6,7 @@ const resources = {
   ar: {
     translation: {
       "home": "الرئيسية",
-      "brands": "البراندات",
+      "brands": "العلامات التجارية",
       "about": "عن المجموعة",
       "contact": "تواصل معنا",
       "lang_btn": "English",

@@ -14,7 +14,7 @@ const Brands = () => {
   const activeBrands = brands.filter(brand => brand.id !== 4 && brand.id !== 5);
 
   return (
-    <section className="brands-section">
+    <section className="brands-section" id="brands">
       <h2 className="section-title text-gradient-gold">
         {t('brands_section_title')}
       </h2>

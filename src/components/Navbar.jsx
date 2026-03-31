@@ -36,7 +36,6 @@ const Navbar = () => {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-container">
           
-          {/* السحر هنا: اللوقو صار يسحب الترجمة من القاموس مباشرة */}
           <a href="#" className="nav-logo">
             <span className="text-gradient-gold" style={{ margin: '0 8px' }}>
               {t('hero_name')}
@@ -46,10 +45,11 @@ const Navbar = () => {
             </span>
           </a>
 
+          {/* 👇 هنا عدلنا الروابط للديسكتوب */}
           <ul className="desktop-nav-links">
-            <li><a href="#">{t('home')}</a></li>
-            <li><a href="#">{t('brands')}</a></li>
-            <li><a href="#">{t('about')}</a></li>
+            <li><a href="#">{t('home')}</a></li> 
+            <li><a href="#brands">{t('brands')}</a></li> 
+            <li><a href="#about">{t('about')}</a></li> 
           </ul>
 
           <div className="desktop-contact" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -63,7 +63,8 @@ const Navbar = () => {
             >
               {t('lang_btn')}
             </button>
-            <a href="#" className="contact-btn">{t('contact')}</a>
+            {/* ربطنا زر التواصل بالفوتر تحت */}
+            <a href="#footer" className="contact-btn">{t('contact')}</a>
           </div>
 
           <div 
@@ -79,10 +80,11 @@ const Navbar = () => {
 
       <div className={`mobile-menu-panel ${isMobileMenuOpen ? 'active' : ''}`}>
         <div className="panel-container">
+          {/* 👇 وهنا عدلنا الروابط لقائمة الجوال */}
           <ul className="nav-links">
             <li style={{ '--i': '1' }}><a href="#" onClick={closeMenu}>{t('home')}</a></li>
-            <li style={{ '--i': '2' }}><a href="#" onClick={closeMenu}>{t('brands')}</a></li>
-            <li style={{ '--i': '3' }}><a href="#" onClick={closeMenu}>{t('about')}</a></li>
+            <li style={{ '--i': '2' }}><a href="#brands" onClick={closeMenu}>{t('brands')}</a></li>
+            <li style={{ '--i': '3' }}><a href="#about" onClick={closeMenu}>{t('about')}</a></li>
             
             <li 
               className="mobile-contact" 
@@ -98,7 +100,7 @@ const Navbar = () => {
               >
                 {t('lang_btn')}
               </button>
-              <a href="#" className="contact-btn" onClick={closeMenu}>{t('contact')}</a>
+              <a href="#footer" className="contact-btn" onClick={closeMenu}>{t('contact')}</a>
             </li>
           </ul>
         </div>

@@ -62,6 +62,9 @@ function App() {
 
       {/* تنسيقات الـ CSS الخاصة بالصفحة الرئيسية */}
       <style jsx global>{`
+        html {
+          scroll-behavior: smooth;
+        }
         .container {
           max-width: 1200px;
           margin: 0 auto;
