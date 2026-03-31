@@ -6,6 +6,7 @@ import Stats from './components/Stats';
 import Brands from './components/Brands';
 import { groupInfo } from './data/brandsData';
 import myHeroBg from './assets/images/background-image.avif';
+import About from './components/About';
 function App() {
   // 2. تفعيل المترجم
   const { t, i18n } = useTranslation();
@@ -47,7 +48,7 @@ function App() {
       </header>
 
       <Stats />
-
+      <About />
       <Brands />
 
       <footer className="footer">

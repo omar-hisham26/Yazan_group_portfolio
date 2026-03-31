@@ -38,7 +38,15 @@ const resources = {
       "b5_title": "مقطع وجاهز",
       "b5_desc": "مفهوم جديد ومبتكر في التجهيزات لتسهيل أعمالك وتوفير وقتك بجودة لا تضاهى.",
       "b6_title": "مغاسل مرجان الحديثة",
-      "b6_desc": "عناية فائقة ونظافة مثالية. نستخدم أحدث التقنيات لضمان أفضل مستويات العناية بمقتنياتك."
+      "b6_desc": "عناية فائقة ونظافة مثالية. نستخدم أحدث التقنيات لضمان أفضل مستويات العناية بمقتنياتك.",
+      "about_section_title": "عن المجموعة",
+      "about_subtitle": "ريادة في الأعمال.. وتميز في التنفيذ",
+      "about_desc1": "مجموعة يزن العلي للاستثمار هي كيان رائد يجمع بين الخبرة العميقة والرؤية المستقبلية. نحن نؤمن بأن الاستثمار الحقيقي يبدأ ببناء الثقة وتقديم قيمة مضافة للمجتمع.",
+      "about_desc2": "منذ تأسيسنا، قمنا بتنويع محفظتنا الاستثمارية لتشمل قطاعات حيوية مثل العقارات، الضيافة، المقاولات، والخدمات، مع الالتزام الصارم بأعلى معايير الجودة والابتكار.","about_desc2": "منذ انطلاقتنا، حرصنا على ترسيخ تواجدنا في قطاعات حيوية مثل العقارات، الضيافة، والمقاولات، متبعين رؤية طموحة تهدف للنمو المستدام والتميز في كل قطاع ننشط فيه.",
+      "vision_title": "رؤيتنا",
+      "vision_desc": "أن نكون الخيار الأول والوجهة الموثوقة للاستثمار والخدمات المتكاملة في المملكة، مع ترك بصمة إيجابية مستدامة.",
+      "mission_title": "رسالتنا",
+      "mission_desc": "تقديم حلول مبتكرة وخدمات استثنائية تفوق توقعات عملائنا، من خلال فريق عمل محترف وشراكات استراتيجية ناجحة."
     }
   },
   en: {
@@ -76,7 +84,15 @@ const resources = {
       "b5_title": "Cut & Ready",
       "b5_desc": "A new and innovative concept in preparation to facilitate your work and save your time with unmatched quality.",
       "b6_title": "Modern Murjan Laundries",
-      "b6_desc": "Supreme care and perfect cleanliness. We use the latest technologies to ensure the best care for your belongings."
+      "b6_desc": "Supreme care and perfect cleanliness. We use the latest technologies to ensure the best care for your belongings.",
+      "about_section_title": "About The Group",
+      "about_subtitle": "Leadership in Business.. Excellence in Execution",
+      "about_desc1": "Yazan Al-Ali Investment Group is a leading entity combining deep experience with futuristic vision. We believe that true investment starts with building trust and adding value to society.",
+      "about_desc2": "Since our inception, we have been keen to consolidate our presence in vital sectors such as real estate, hospitality, and contracting, following an ambitious vision aimed at sustainable growth and excellence in every sector we operate in.",
+      "vision_title": "Our Vision",
+      "vision_desc": "To be the first choice and trusted destination for investments and integrated services in the Kingdom, leaving a sustainable positive footprint.",
+      "mission_title": "Our Mission",
+      "mission_desc": "To provide innovative solutions and exceptional services that exceed our clients' expectations, through a professional team and successful strategic partnerships."
     }
   }
 };
