@@ -1,20 +1,20 @@
 /* src/index.css */
 
-/* استيراد الخطوط */
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700&display=swap');
+/* استيراد الخطوط (أضفت لك خط Almarai عشان تجربه إذا حبيت) */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=Almarai:wght@300;400;700;800&display=swap');
 
 :root {
   /* ألوان رمادي فحمي (داكن معتدل ومطفي) */
-  --background: hsl(215, 15%, 12%); /* لون الخلفية الرئيسي: رمادي داكن مريح */
-  --foreground: hsl(215, 15%, 90%); /* لون النصوص: أبيض مطفي عشان ما يجهد العين */
+  --background: hsl(215, 15%, 12%); 
+  --foreground: hsl(215, 15%, 90%); 
   
-  --card: hsl(215, 15%, 16%); /* لون البطاقات: أفتح بدرجة بسيطة جداً من الخلفية */
+  --card: hsl(215, 15%, 16%); 
   --card-foreground: hsl(215, 15%, 90%);
   
-  --secondary: hsl(215, 15%, 22%); /* لون الأيقونات والخلفيات الثانوية */
-  --muted-foreground: hsl(215, 10%, 65%); /* رمادي للنصوص الفرعية */
+  --secondary: hsl(215, 15%, 22%); 
+  --muted-foreground: hsl(215, 10%, 65%); 
   
-  /* الذهبي الملكي (موزون عشان يركب مع الرمادي الفحمي) */
+  /* الذهبي الملكي */
   --primary: hsl(42, 60%, 55%); 
   --primary-foreground: hsl(215, 15%, 12%);
   --gold: hsl(42, 60%, 55%);
@@ -30,8 +30,10 @@
   /* ظل ناعم للبطاقات */
   --shadow-gold: 0 8px 30px hsla(0, 0%, 0%, 0.2);
   
-  --font-tajawal: 'Tajawal', sans-serif;
-  --font-cairo: 'Cairo', sans-serif;
+  /* 👇👇👇 السحر هنا: هذا هو خط الموقع كامل 👇👇👇 */
+  --main-font: 'Cairo', sans-serif; 
+  /* إذا تبي تغير الخط، بس امسح Tajawal واكتب Cairo أو Almarai */
+
   --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -46,7 +48,8 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-tajawal);
+  /* ربطنا الخط بالمتغير السحري */
+  font-family: var(--main-font); 
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -54,7 +57,8 @@ body {
 
 /* تنسيقات العناوين */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-cairo);
+  /* ربطنا الخط بالمتغير السحري */
+  font-family: var(--main-font);
   font-weight: 700;
 }
 
@@ -64,7 +68,7 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  display: inline-block; /* لضمان عمل التدرج بشكل صحيح */
+  display: inline-block; 
 }
 
 /* تعريف الأنيميشن الأساسية */
@@ -78,8 +82,8 @@ h1, h2, h3, h4, h5, h6 {
   to { opacity: 1; }
 }
 
-/* --- ستايلات الهيرو والفوتر (المنقولة من App.jsx) --- */
-html { scroll-behavior: smooth; font-family: 'Cairo', sans-serif; }
+/* --- ستايلات الهيرو والفوتر --- */
+html { scroll-behavior: smooth; font-family: var(--main-font); } /* ربطنا الخط هنا كمان */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%; }
 
 .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 2rem 0; }
@@ -93,14 +97,14 @@ html { scroll-behavior: smooth; font-family: 'Cairo', sans-serif; }
 .top-line { margin-bottom: 2.5rem; animation: lineIn 1.2s ease forwards 0.3s; }
 .bottom-line { margin-top: 1rem; animation: lineIn 1.2s ease forwards 1.3s; }
 .hero-tagline { color: var(--primary); font-size: 1.15rem; font-weight: 500; letter-spacing: 0.15em; margin-bottom: 1.5rem; opacity: 0; animation: fadeUp 1s ease forwards 0.5s; }
-.main-title { font-size: clamp(1.8rem, 5vw, 4.5rem); font-weight: 900; line-height: 1.4; padding-bottom: 0.2em; margin-bottom: 1rem; opacity: 0; animation: fadeUp 1s ease forwards 0.7s; white-space: nowrap; }
+.main-title { font-size: clamp(1.8rem, 5vw, 4.5rem); font-weight: 600; line-height: 1.4; padding-bottom: 0.2em; margin-bottom: 1rem; opacity: 0; animation: fadeUp 1s ease forwards 0.7s; white-space: nowrap; }
 .sub-title { font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 600; color: var(--muted-foreground); margin-bottom: 2.5rem; opacity: 0; animation: fadeUp 1s ease forwards 0.9s; }
-.hero-desc { color: var(--muted-foreground); font-size: clamp(1.1rem, 2.5vw, 1.3rem); max-width: 700px; margin: 0 auto 4rem; line-height: 1.9; opacity: 0; animation: fadeUp 1s ease forwards 1.1s; }
+.hero-desc { color: var(--primary); font-size: clamp(1.1rem, 2.5vw, 1.3rem); max-width: 700px; margin: 0 auto 4rem; line-height: 1.9; opacity: 0; animation: fadeUp 1s ease forwards 1.1s; }
 
 .footer { padding: 6rem 0 3rem; border-top: 1px solid hsla(42, 60%, 55%, 0.1); background: hsl(215, 15%, 11%); color: var(--muted-foreground); }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
 .footer-logo { margin-bottom: 1.5rem; display: flex; align-items: baseline; gap: 8px; }
-.footer-name { font-size: 1.8rem; font-weight: 900; letter-spacing: -0.02em; }
+.footer-name { font-size: 1.8rem; font-weight: 600; letter-spacing: -0.02em; }
 .footer-type { font-size: 1.1rem; color: white; opacity: 0.9; font-weight: 600; }
 .footer-desc-text { font-size: 1rem; line-height: 1.8; max-width: 400px; }
 .footer-col h4 { font-size: 1.3rem; color: var(--gold); font-weight: 700; margin-bottom: 1.8rem; position: relative; }
