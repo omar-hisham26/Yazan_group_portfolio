@@ -5,12 +5,11 @@ import { useInView } from 'react-intersection-observer';
 import './Stats.css';
 
 // مكون صغير مسؤول عن عد رقم واحد فقط
-const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }) => {
+const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "", startCounting }) => {
   const [count, setCount] = useState(0);
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
 
   useEffect(() => {
-    if (inView) {
+    if (startCounting) {
       let startTimestamp = null;
       const step = (timestamp) => {
         if (!startTimestamp) startTimestamp = timestamp;
@@ -26,10 +25,10 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }) => 
       };
       window.requestAnimationFrame(step);
     }
-  }, [inView, end, duration]);
+  }, [startCounting, end, duration]);
 
   return (
-    <div ref={ref} className="stat-number text-gradient-gold">
+    <div className="stat-number text-gradient-gold">
       {prefix}{count}{suffix}
     </div>
   );
@@ -37,6 +36,9 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "", prefix = "" }) => 
 
 const Stats = () => {
   const { t } = useTranslation();
+  
+  // 👇 السحر هنا: نراقب القسم كامل عشان نبدأ الأنيميشن
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.2 });
 
   // بيانات الإحصائيات مع أيقونات SVG بسيطة ونظيفة
   const statsData = [
@@ -60,7 +62,7 @@ const Stats = () => {
     },
     {
       id: 3,
-      end: 4,
+      end: 5,
       labelKey: "stat_brands",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -79,12 +81,17 @@ const Stats = () => {
   ];
 
   return (
-    <section className="stats-section">
+    <section className="stats-section" ref={ref}>
       <div className="stats-container">
-        {statsData.map((stat) => (
-          <div key={stat.id} className="stat-item">
+        {statsData.map((stat, index) => (
+          // 👇 نضيف كلاس visible مع تأخير زمني بناءً على الترتيب
+          <div 
+            key={stat.id} 
+            className={`stat-item ${inView ? 'visible' : ''}`}
+            style={{ animationDelay: `${index * 0.15}s` }}
+          >
             <div className="stat-icon">{stat.icon}</div>
-            <AnimatedCounter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} />
+            <AnimatedCounter end={stat.end} prefix={stat.prefix} suffix={stat.suffix} startCounting={inView} />
             <p className="stat-label">{t(stat.labelKey)}</p>
           </div>
         ))}

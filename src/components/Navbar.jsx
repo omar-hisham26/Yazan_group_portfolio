@@ -66,8 +66,8 @@ const Navbar = ({ setCurrentPage }) => {
 
           <ul className="desktop-nav-links">
             <li><a href="#" onClick={goHome}>{t('home')}</a></li> 
-            <li><a href="#brands" onClick={(e) => goSection(e, 'brands')}>{t('brands')}</a></li> 
             <li><a href="#about" onClick={(e) => goSection(e, 'about')}>{t('about')}</a></li> 
+            <li><a href="#brands" onClick={(e) => goSection(e, 'brands')}>{t('brands')}</a></li>
           </ul>
 
           <div className="desktop-contact" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>

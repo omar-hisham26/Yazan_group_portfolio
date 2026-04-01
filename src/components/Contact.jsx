@@ -46,7 +46,7 @@ const Contact = () => {
             <p>{i18n.language === 'ar' ? 'رد فوري على استفساراتكم' : 'Instant response to your inquiries'}</p>
           </a>
 
-          {/* بطاقة البريد الإلكتروني */}
+          {/* بطاقة البريد الإلكتروني 
           <a href={`mailto:${email}`} className="direct-card email-card">
             <div className="card-icon">
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -56,7 +56,7 @@ const Contact = () => {
             <h3>{i18n.language === 'ar' ? 'البريد الإلكتروني' : 'Email Us'}</h3>
             <p>{email}</p>
           </a>
-
+            */}
           {/* بطاقة الاتصال المباشر */}
           <a href={`tel:${phone}`} className="direct-card phone-card">
             <div className="card-icon">

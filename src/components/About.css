@@ -10,6 +10,17 @@
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
+  
+  /* 👇 1. أضفنا الإخفاء المبدئي هنا عشان الأنيميشن */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1s ease-out, transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* 👇 2. هذا الكلاس اللي يضيفه الجافاسكريبت عشان يظهر القسم بنعومة */
+.about-grid.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-content h2 {

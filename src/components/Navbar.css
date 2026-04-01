@@ -1,5 +1,17 @@
 /* src/components/Navbar.css */
 
+/* 👇--- الأنيميشن السحري لظهور الناف بار أول ما يفتح الموقع ---👇 */
+@keyframes navFadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* --- الإعدادات العامة للشريط العلوي --- */
 .navbar {
   position: fixed;
@@ -10,6 +22,9 @@
   padding: 1.5rem 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   border-bottom: 1px solid transparent;
+  
+  /* 👇 تفعيل حركة الظهور عند تحميل الصفحة */
+  animation: navFadeDown 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .navbar.scrolled {
@@ -178,28 +193,23 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-
 /* ================================================== */
 /* السحر هنا: حل مشكلة الجوال (Media Queries) */
 /* ================================================== */
 @media (max-width: 900px) {
-  /* 1. إخفاء روابط الكمبيوتر بقوة (important) عشان ما تظهر أبداً بالجوال */
   .desktop-nav-links {
     display: none !important;
   }
   
-  /* 2. إخفاء أزرار الكمبيوتر (تواصل معنا واللغة) */
   .desktop-contact {
     display: none !important;
   }
   
-  /* 3. إظهار زر الثلاث خطوط حق الجوال */
   .menu-toggle {
     display: flex !important;
   }
 }
 
-/* تعديل بسيط للجوالات الصغيرة جداً */
 @media (max-width: 500px) {
   .nav-logo { font-size: 1.3rem; }
 }

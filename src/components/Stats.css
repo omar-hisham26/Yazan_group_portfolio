@@ -30,6 +30,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  
+  /* 👇 الإعدادات الخاصة بالأنيميشن (مخفي ونازل تحت شوي) */
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 /* خط فاصل أنيق بين الأرقام في الشاشات الكبيرة */
@@ -93,4 +97,20 @@
     padding: 2rem 1.5rem;
     gap: 3rem;
   }
+}
+
+/* 👇--- الأنيميشن السحري للظهور ---👇 */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-item.visible {
+  animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }

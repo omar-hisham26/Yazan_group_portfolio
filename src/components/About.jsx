@@ -1,15 +1,28 @@
 // src/components/About.jsx
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+// 👇 1. استيراد أداة المراقبة
+import { useInView } from 'react-intersection-observer'; 
 import './About.css';
 import aboutImage from '../assets/images/about-image.jpg';
+
 const About = () => {
   const { t } = useTranslation();
+
+  // 👇 2. تفعيل المراقبة (يشتغل مرة واحدة لما يظهر 20% من القسم)
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.2, 
+  });
 
   return (
     <section className="about-section" id="about">
       <div className="container">
-        <div className="about-grid">
+        {/* 👇 3. نربط الـ ref ونضيف كلاس visible إذا ظهر */}
+        <div 
+          ref={ref} 
+          className={`about-grid ${inView ? 'visible' : ''}`}
+        >
           
           <div className="about-content">
             <h2 className="text-gradient-gold">{t('about_section_title')}</h2>

@@ -37,12 +37,13 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  
+  /* 👇 أضفنا الإخفاء المبدئي للأنيميشن */
+  opacity: 0; 
 }
 
 /* تأثير الماوس (Hover) - الارتفاع والظل الذهبي */
 .brand-card:hover {
-  transform: translateY(-12px); /* ترتفع لفوق */
+  transform: translateY(-12px) scale(1.02); /* ترتفع لفوق وتكبر شوي */
   border-color: var(--gold);
   box-shadow: 0 20px 40px hsla(42, 60%, 55%, 0.15); /* ظل ذهبي فخم */
 }
@@ -52,6 +53,7 @@
   width: 100%;
   height: 240px;
   overflow: hidden;
+  position: relative; /* مهم عشان علامة قريباً تجي فوق الصورة صح */
 }
 
 .brand-image {
@@ -63,6 +65,21 @@
 
 .brand-card:hover .brand-image {
   transform: scale(1.08); /* الصورة تكبر شوي بنعومة لما تمرر الماوس */
+}
+
+/* علامة قريباً */
+.coming-soon-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--gradient-gold);
+  color: var(--primary-foreground);
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.85rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 10;
 }
 
 /* محتوى البطاقة (النصوص والأزرار) */
@@ -107,7 +124,13 @@
   cursor: pointer;
 }
 
-.brand-card:hover .details-btn {
+.details-btn:disabled {
+  border-color: var(--muted-foreground);
+  color: var(--muted-foreground);
+  cursor: not-allowed;
+}
+
+.brand-card:hover .details-btn:not(:disabled) {
   background: var(--gradient-gold);
   color: var(--primary-foreground);
 }
@@ -123,4 +146,21 @@ html[dir="rtl"] .brand-card:hover .btn-icon {
 
 html[dir="ltr"] .brand-card:hover .btn-icon {
   transform: translateX(5px); /* السهم يتحرك يمين بالإنجليزي */
+}
+
+/* 👇--- الأنيميشن السحري للظهور ---👇 */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* الكلاس الذي تتم إضافته بواسطة الجافاسكريبت عندما تظهر البطاقة */
+.brand-card.visible {
+  animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
